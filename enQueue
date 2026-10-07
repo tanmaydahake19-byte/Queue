@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+class Queue
+{
+    public:
+    int A[5];
+    int front;
+    int rear;
+
+    Queue()
+    {
+        front=-1;
+        rear=-1;
+    }
+
+    void enQueue(int value)
+    {
+        if(rear==4)
+        {
+            cout<<"Queue is overflow."<<endl;
+        }
+        if(front==-1)
+        {
+            front=0;
+        }
+        rear++;
+        A[rear]=value;
+        cout<<value<<" is added in the queue."<<endl;;
+    }
+
+    void display()
+    {
+        if(front>rear||rear==-1)
+        {
+            cout<<"Queue is underflow.";
+        }
+        else
+        {
+            for(int i=front;i<=rear;i++)
+                cout<<A[i]<<" ";
+        }
+    }
+};
+
+int main()
+{
+    Queue q;
+
+    q.enQueue(10);
+    q.enQueue(20);
+    q.enQueue(21);
+    q.enQueue(22);
+    q.enQueue(23);
+    q.display();
+}
